@@ -12,7 +12,11 @@ generator client {
 }
 
 model User {
-  id       String @id @default(uuid())
-  username String @unique
-  imageUr  String // Assuming STRING is the appropriate type in CockroachDB
+  id             String   @id @default(uuid())
+  username       String   @unique
+  imageUr        String // Assuming STRING is the appropriate type in CockroachDB
+  externalUserID String   @unique
+  bio            String?  @db.String
+  creatAt        DateTime @default(now())
+  update         DateTime @updatedAt
 }
