@@ -2,7 +2,7 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-  provider     = "cockroachdb"
+  provider     = "mysql"
   url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
@@ -12,11 +12,11 @@ generator client {
 }
 
 model User {
-  id             String   @id @default(uuid())
+  id             String   @id
   username       String   @unique
-  imageUr        String // Assuming STRING is the appropriate type in CockroachDB
+  imageUrl       String   @default("")
   externalUserID String   @unique
-  bio            String?  @db.String
-  creatAt        DateTime @default(now())
-  update         DateTime @updatedAt
+  bio            String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
