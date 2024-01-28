@@ -12,11 +12,12 @@ generator client {
 }
 
 model User {
-  id             String   @id
+  id             String   @id @default(uuid())
   username       String   @unique
-  imageUrl       String   @default("")
+  imageUrl       String   @db.Text
   externalUserID String   @unique
-  bio            String?
+  bio            String? @db.Text
+  
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 }
