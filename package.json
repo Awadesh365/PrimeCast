@@ -21,7 +21,8 @@
     "react-dom": "^18",
     "svix": "^1.16.0",
     "tailwind-merge": "^2.2.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zustand": "^4.5.0"
   },
   "devDependencies": {
     "@prisma/client": "^5.8.1",
