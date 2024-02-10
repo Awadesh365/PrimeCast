@@ -55,7 +55,7 @@ export async function POST(req: Request) {
   if (eventType === "user.created") {
     await db.user.create({
       data: {
-        externalUserId: payload.data.id,
+        externalUserID: payload.data.id, // Corrected property name to 'externalUserID'
         username: payload.data.username,
         imageUrl: payload.data.image_url,
       },
@@ -65,7 +65,7 @@ export async function POST(req: Request) {
   if (eventType === "user.updated") {
     await db.user.update({
       where: {
-        externalUserId: payload.data.id,
+        externalUserID: payload.data.id, // Corrected property name to 'externalUserID'
       },
       data: {
         username: payload.data.username,
@@ -77,7 +77,7 @@ export async function POST(req: Request) {
   if (eventType === "user.deleted") {
     await db.user.delete({
       where: {
-        externalUserId: payload.data.id,
+        externalUserID: payload.data.id, // Corrected property name to 'externalUserID'
       },
     });
   }
